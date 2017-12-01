@@ -1,0 +1,28 @@
+form{
+    margin-top: 20px;
+}
+
+.comments{
+    margin-top: 40px;
+}
+
+.name{
+    font-style: italic;
+}
+
+.nameTree{
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.text{
+    margin-top: 10px;
+}
+
+.answer{
+    margin-top: 10px;
+}
+
+li{
+    list-style-type: none;
+}
