@@ -54,7 +54,7 @@ class gBook extends gBookAbstract
         foreach ($result as $res) {
             echo "<li>";
             echo "<div class='name'>" . $res['name'] . "</div>";
-            echo "<div class='text'>" . $res['text'] . "</div>";
+            echo "<div class='text'>" . nl2br($res['text']) . "</div>";
             echo "<div class='answer'><a class='ans' href='?id=" . $res['id'] . "'>Ответить</a></div>";
             $this->createTree($res['id']);
             echo "<hr>";
@@ -73,7 +73,7 @@ class gBook extends gBookAbstract
         foreach ($result as $node) {
             echo "<li>";
             echo "<div class='nameTree'>" . $node['name'] . "</div>";
-            echo "<div class='text'>" . $node['text'] . "</div>";
+            echo "<div class='text'>" . nl2br($node['text']) . "</div>";
             echo "<div class='answer'><a class='ans' href='?id=" . $node['id'] . "'>Ответить</a></div>";
             $this->createTree($node['id']);
             echo "</li>";
