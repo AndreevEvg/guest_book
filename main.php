@@ -31,30 +31,8 @@ $gBook->addMessage();
             </form>
             
             <div class="comments">
-                <ul>
-                <?php foreach ($gBook->showMessage() as $res): ?>
-                    <li>
-                        <div class='name'><?= $res['name'];?></div>
-                        <div class='text'><?= nl2br($res['text']);?></div>
-                        <div class="answer"><a href="?id=<?= $res['id'];?>">Ответить</a></div>
-                        <ul>
-                            <?php foreach ($gBook->createTree($res['id']) as $node): ?>
-                            <li>
-                                <div class='nameTree'><?= $node['name'];?></div>
-                                <div class='text'><?= $node['text']; ?></div>
-                                <div class="answer"><a href="?id=<?= $node['id'];?>">Ответить</a></div>
-                                
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </li>
-                <hr>
-                <?php endforeach ?>
-                </ul>
+                <?php $gBook->showMessage(); ?>
             </div>
-        </div>
-
-
-        
+        </div>     
     </body>
 </html>

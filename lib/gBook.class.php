@@ -50,19 +50,35 @@ class gBook extends gBookAbstract
         $sql = $this->db->prepare("SELECT * FROM book WHERE parent_id IS NULL");
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-        $result = array_reverse($result);
-        
-        return $result;      
+        echo "<ul>";
+        foreach ($result as $res) {
+            echo "<li>";
+            echo "<div class='name'>" . $res['name'] . "</div>";
+            echo "<div class='text'>" . $res['text'] . "</div>";
+            echo "<div class='answer'><a class='ans' href='?id=" . $res['id'] . "'>Ответить</a></div>";
+            $this->createTree($res['id']);
+            echo "<hr>";
+            echo "</li>";
+        }
+        echo "</ul>";
+             
     }
     
-    public function createTree($parent_id)
+    protected function createTree($parent_id)
     {
         $sql = $this->db->prepare("SELECT * FROM book WHERE parent_id = $parent_id");
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-        $result = array_reverse($result);
-        
-        return $result;
+        echo "<ul>";
+        foreach ($result as $node) {
+            echo "<li>";
+            echo "<div class='nameTree'>" . $node['name'] . "</div>";
+            echo "<div class='text'>" . $node['text'] . "</div>";
+            echo "<div class='answer'><a class='ans' href='?id=" . $node['id'] . "'>Ответить</a></div>";
+            $this->createTree($node['id']);
+            echo "</li>";
+        }
+        echo "</ul>";
     }
 }
 

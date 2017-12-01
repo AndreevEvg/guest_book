@@ -8,11 +8,13 @@ form{
 
 .name{
     font-style: italic;
+    font-weight: bold;
 }
 
 .nameTree{
     font-style: italic;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 .text{
@@ -21,6 +23,14 @@ form{
 
 .answer{
     margin-top: 10px;
+}
+
+.ans{
+    color: #999;
+}
+
+.ans:hover{
+    color: #999;
 }
 
 li{

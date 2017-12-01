@@ -12,6 +12,6 @@ abstract class gBookAbstract
     abstract function showMessage();
     
     /* Метод создает дерево комментариев */
-    abstract function createTree($parent_id);
+    abstract protected function createTree($parent_id);
  }
 
