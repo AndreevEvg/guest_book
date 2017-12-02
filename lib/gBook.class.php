@@ -70,12 +70,12 @@ class gBook extends gBookAbstract
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
         echo "<ul>";
-        foreach ($result as $node) {
+        foreach ($result as $res) {
             echo "<li>";
-            echo "<div class='nameTree'>" . $node['name'] . "</div>";
-            echo "<div class='text'>" . nl2br($node['text']) . "</div>";
-            echo "<div class='answer'><a class='ans' href='?id=" . $node['id'] . "'>Ответить</a></div>";
-            $this->createTree($node['id']);
+            echo "<div class='nameTree'>" . $res['name'] . "</div>";
+            echo "<div class='text'>" . nl2br($res['text']) . "</div>";
+            echo "<div class='answer'><a class='ans' href='?id=" . $res['id'] . "'>Ответить</a></div>";
+            $this->createTree($res['id']);
             echo "</li>";
         }
         echo "</ul>";

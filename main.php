@@ -5,6 +5,10 @@ require(ROOT . '/lib/dbConnect.php');
 
 $gBook = new gBook($DB_con);
 $gBook->addMessage();
+
+if (isset($_GET['id'])) {
+    echo $_GET['id'];
+}
 ?>
 
 <!DOCTYPE html>
