@@ -19,19 +19,4 @@ class gBookShowMessage extends gBook
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
         $this->templateMessage($result);
     }
-    
-    /* Метод отрисовывает шаблон вывода комментариев */
-    protected function templateMessage($result)
-    {
-        echo "<ul>";
-        foreach ($result as $res) {
-            echo "<li>";
-            echo "<div class='nameTree'>" . $res['name'] . "</div>";
-            echo "<div class='text'>" . nl2br($res['text']) . "</div>";
-            echo "<div class='answer'><a class='ans' href='?id=" . $res['id'] . "'>Ответить</a></div>";
-            $this->createTree($res['id']);
-            echo "</li>";
-        }
-        echo "</ul>";
-    }
 }

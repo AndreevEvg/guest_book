@@ -5,17 +5,7 @@ class gBookAddMessage extends gBook
     /* Метод добавляет комментарии в БД */
     public function addMessage()
     {
-        echo '<form action="" method="POST">
-                    <div class="form-group">
-                        <label for="exampleInputName">Имя:</label>
-                        <input type="text" class="form-control" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputMessage">Сообщение</label>
-                        <textarea class="form-control" rows="3" name="text"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default">Отправить</button>
-                </form>';
+        $this->createFormComments();
         
         if (!empty($_POST['name']) && !empty($_POST['text'])) {
             $name = $this->clearData($_POST['name']);
@@ -44,17 +34,7 @@ class gBookAddMessage extends gBook
     public function addAnswerMessage($parent_id)
     {
         echo "<h1>Ответ на комментарий:</h1>";
-        echo '<form action="" method="POST">
-                    <div class="form-group">
-                        <label for="exampleInputName">Имя:</label>
-                        <input type="text" class="form-control" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputMessage">Сообщение</label>
-                        <textarea class="form-control" rows="3" name="text"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default">Отправить</button>
-                </form>';
+        $this->createFormComments();
                 
         if (!empty($_POST['name']) && !empty($_POST['text'])) {
             $name = $this->clearData($_POST['name']);
