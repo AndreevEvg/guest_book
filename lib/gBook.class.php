@@ -51,4 +51,10 @@ class gBook
         }
         echo "</ul>";
     }
+    
+    /* Метод отправляет уведомление на почту о новых комментариях */
+    protected function sendEmail()
+    {
+        return mail('example@example.ru', 'Комментарий', "Вам пришел новый комментарий!!!");
+    }
 }

@@ -18,7 +18,7 @@ class gBookAddMessage extends gBook
                 $stmt->bindparam(":name", $name);
                 $stmt->bindparam(":text", $text);
                 $stmt->execute();
-                
+                $this->sendEmail();
                 header("Location: main.php");
                 
                 return true;
@@ -48,7 +48,7 @@ class gBookAddMessage extends gBook
                 $stmt->bindparam(":name", $name);
                 $stmt->bindparam(":text", $text);
                 $stmt->execute();
-                
+                $this->sendEmail();
                 header("Location: main.php");
                 
                 return true;
