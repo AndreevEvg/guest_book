@@ -11,7 +11,11 @@ abstract class gBookAbstract
     /* Метод показывает комментарии */
     abstract function showMessage();
     
+    /* Метод отрисовывает шаблон вывода комментариев */
+    abstract protected function templateMessage($result);
+    
     /* Метод создает дерево комментариев */
     abstract protected function createTree($parent_id);
+    
  }
 

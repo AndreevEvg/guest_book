@@ -50,17 +50,7 @@ class gBook extends gBookAbstract
         $sql = $this->db->prepare("SELECT * FROM book WHERE parent_id IS NULL");
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-        echo "<ul>";
-        foreach ($result as $res) {
-            echo "<li>";
-            echo "<div class='name'>" . $res['name'] . "</div>";
-            echo "<div class='text'>" . nl2br($res['text']) . "</div>";
-            echo "<div class='answer'><a class='ans' href='?id=" . $res['id'] . "'>Ответить</a></div>";
-            $this->createTree($res['id']);
-            echo "<hr>";
-            echo "</li>";
-        }
-        echo "</ul>";
+        $this->templateMessage($result);
              
     }
     
@@ -69,6 +59,11 @@ class gBook extends gBookAbstract
         $sql = $this->db->prepare("SELECT * FROM book WHERE parent_id = $parent_id");
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+        $this->templateMessage($result);
+    }
+    
+    public function templateMessage($result)
+    {
         echo "<ul>";
         foreach ($result as $res) {
             echo "<li>";
