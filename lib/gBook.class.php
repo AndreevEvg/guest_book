@@ -2,13 +2,13 @@
 
 class gBook extends gBookAbstract
 {
-    private $db;
+    protected $db;
     
     public function __construct($DB_con)
     {
         $this->db = $DB_con;
     }
-    
+ 
     protected function clearData($data, $type = "s")
     {
         switch ($type) {
@@ -57,7 +57,7 @@ class gBook extends gBookAbstract
         }
     }
     
-        public function addAnswerMessage($parent_id)
+    public function addAnswerMessage($parent_id)
     {
         echo "<h1>Ответ на комментарий:</h1>";
         echo '<form action="" method="POST">
@@ -112,7 +112,7 @@ class gBook extends gBookAbstract
         $this->templateMessage($result);
     }
     
-    public function templateMessage($result)
+    protected function templateMessage($result)
     {
         echo "<ul>";
         foreach ($result as $res) {
@@ -126,4 +126,3 @@ class gBook extends gBookAbstract
         echo "</ul>";
     }
 }
-

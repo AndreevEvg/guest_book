@@ -1,7 +1,7 @@
 <?php
 define('ROOT', dirname(__FILE__));
 require(ROOT . '/lib/autoload.php');
-require(ROOT . '/lib/dbConnect.php');
+require(ROOT . '/config/dbConnect.php');
 
 $gBook = new gBook($DB_con);
 ?>
