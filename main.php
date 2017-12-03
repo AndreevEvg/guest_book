@@ -3,7 +3,8 @@ define('ROOT', dirname(__FILE__));
 require(ROOT . '/lib/autoload.php');
 require(ROOT . '/config/dbConnect.php');
 
-$gBook = new gBook($DB_con);
+$gBookAddMessage = new gBookAddMessage($DB_con);
+$gbookShowMessage = new gBookShowMessage($DB_con);
 ?>
 
 <!DOCTYPE html>
@@ -18,16 +19,16 @@ $gBook = new gBook($DB_con);
     <body>
         <div class="container">
             <?php
-            if (isset($_GET['id'])) {
+            if (isset($_GET['id'])) {             
                 $parent_id = $_GET['id'];
-                $gBook->addAnswerMessage($parent_id);
-            } else {
-                $gBook->addMessage();
+                $gBookAddMessage->addAnswerMessage($parent_id);            
+            } else {              
+                $gBookAddMessage->addMessage();
             }
             ?>
             
             <div class="comments">
-                <?php $gBook->showMessage(); ?>
+                <?php $gbookShowMessage->showMessage(); ?>
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
