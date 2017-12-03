@@ -2,6 +2,6 @@
 
 $DB_host = "localhost";
 $DB_login = "root";
-$DB_password = "evg270583";
+$DB_password = "";
 $DB_name = "gBook";
 

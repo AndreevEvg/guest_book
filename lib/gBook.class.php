@@ -9,7 +9,7 @@ class gBook
         $this->db = $DB_con;
     }
  
-    /* Фильтрация данных получаемых от пользователя */
+    /* Метод фильтрации данных получаемых от пользователя */
     protected function clearData($data, $type = "s")
     {
         switch ($type) {
