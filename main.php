@@ -4,11 +4,6 @@ require(ROOT . '/lib/autoload.php');
 require(ROOT . '/lib/dbConnect.php');
 
 $gBook = new gBook($DB_con);
-$gBook->addMessage();
-
-if (isset($_GET['id'])) {
-    echo $_GET['id'];
-}
 ?>
 
 <!DOCTYPE html>
@@ -22,23 +17,21 @@ if (isset($_GET['id'])) {
     </head>
     <body>
         <div class="container">
-            <form action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
-                <div class="form-group">
-                    <label for="exampleInputName">Имя:</label>
-                    <input type="text" class="form-control" name="name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputMessage">Сообщение</label>
-                    <textarea class="form-control" rows="3" name="text"></textarea>
-                </div>
-                <button type="submit" class="btn btn-default">Отправить</button>
-            </form>
+            <?php
+            if (isset($_GET['id'])) {
+                $parent_id = $_GET['id'];
+                $gBook->addAnswerMessage($parent_id);
+            } else {
+                $gBook->addMessage();
+            }
+            ?>
             
             <div class="comments">
                 <?php $gBook->showMessage(); ?>
             </div>
-        </div> 
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="js/script.js"></script>
     </body>
 </html>

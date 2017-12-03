@@ -5,6 +5,7 @@
         <group>
             <file>file:/var/www/main.site/lib/gBook.class.php</file>
             <file>file:/var/www/main.site/main.php</file>
+            <file>file:/var/www/main.site/style/style.css</file>
             <file>file:/var/www/main.site/lib/gBookAbstract.class.php</file>
         </group>
     </open-files>
